@@ -38,7 +38,7 @@ input {
 
 .app-shell {
   display: grid;
-  grid-template-rows: 78px 1fr;
+  grid-template-rows: 78px 1fr auto;
   height: 100%;
 }
 
@@ -300,6 +300,15 @@ button.secondary {
   border-color: #8dbab5;
 }
 
+.footer {
+  border-top: 1px solid var(--line);
+  background: #f8fbf8;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 10px 12px;
+}
+
 @keyframes pop-in {
   from {
     opacity: 0;
@@ -327,7 +336,7 @@ button.secondary {
 
 @media (max-width: 860px) {
   .app-shell {
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1fr auto;
   }
 
   .topbar {

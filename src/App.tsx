@@ -99,6 +99,7 @@ export function App() {
 
         <ConfigPanel />
       </main>
+      <footer className="footer">© 2026 Vijay Tak. All rights reserved.</footer>
     </div>
   );
 }
