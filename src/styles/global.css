@@ -1,0 +1,360 @@
+﻿:root {
+  --bg: #f4f6f2;
+  --bg-2: #eaf0e6;
+  --surface: #fbfdf9;
+  --surface-strong: #ffffff;
+  --line: #d6dfd2;
+  --line-soft: #e3eadf;
+  --text: #182022;
+  --muted: #5c686d;
+  --primary: #0f766e;
+  --primary-strong: #0b5e58;
+  --accent: #b45309;
+  --ok: #067647;
+  --danger: #b42318;
+  --shadow-sm: 0 2px 6px rgba(17, 24, 39, 0.06);
+  --shadow-md: 0 10px 26px rgba(16, 24, 40, 0.1);
+  font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 0% 0%, #fef9eb 0%, var(--bg) 42%, var(--bg-2) 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-rows: 78px 1fr;
+  height: 100%;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(95deg, #fff9ec 0%, #f6fbf9 50%, #eef7f4 100%);
+  backdrop-filter: blur(4px);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
+}
+
+.topbar p {
+  margin: 4px 0 0;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: 1px solid var(--primary);
+  background: linear-gradient(180deg, #12998f 0%, var(--primary) 100%);
+  color: #f8fffc;
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+  filter: saturate(1.1);
+}
+
+button.secondary {
+  border-color: #c7d4ca;
+  background: #ffffff;
+  color: #334155;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 280px 1fr 340px;
+  min-height: 0;
+}
+
+.panel {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-strong) 100%);
+  border-right: 1px solid var(--line);
+  padding: 14px;
+  overflow: auto;
+}
+
+.panel--right {
+  border-right: 0;
+  border-left: 1px solid var(--line);
+}
+
+.panel h2 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.panel__subtitle {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.palette-group {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line-soft);
+}
+
+.palette-group h3 {
+  margin: 0 0 8px;
+  text-transform: capitalize;
+  font-size: 0.79rem;
+  letter-spacing: 0.08em;
+  color: #4d5a60;
+}
+
+.palette-item {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
+  border: 1px solid #d3ddd3;
+  background: #fdfefc;
+  color: #1f2a37;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.palette-item:hover {
+  border-color: #b7c8bc;
+}
+
+.palette-item small {
+  color: #617076;
+  font-size: 0.73rem;
+}
+
+.canvas-wrap {
+  display: grid;
+  grid-template-rows: 1fr 240px;
+  min-height: 0;
+}
+
+.react-flow {
+  background: linear-gradient(180deg, #f4f9f5 0%, #eff6f1 100%);
+}
+
+.react-flow__controls {
+  box-shadow: var(--shadow-sm);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  border-color: #d4dfd4;
+}
+
+.execution-panel {
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, #ffffff 0%, #f9fcf9 100%);
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  overflow: auto;
+}
+
+.execution-panel h3 {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+}
+
+.execution-panel ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.execution-panel pre {
+  margin: 0;
+  background: #f2f7f1;
+  border: 1px solid #d5e0d5;
+  border-radius: 10px;
+  padding: 9px;
+  font-size: 0.76rem;
+}
+
+.ok {
+  color: var(--ok);
+}
+
+.error {
+  color: var(--danger);
+}
+
+.workflow-node {
+  min-width: 182px;
+  border: 1px solid #bfd0c4;
+  border-radius: 12px;
+  padding: 10px 11px;
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+  transform-origin: center;
+  animation: pop-in 180ms ease-out;
+}
+
+.workflow-node__title {
+  font-weight: 700;
+  font-size: 0.89rem;
+}
+
+.workflow-node__type {
+  margin-top: 4px;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: #5f6f75;
+}
+
+.workflow-node.is-selected {
+  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.2), var(--shadow-md);
+}
+
+.workflow-node--input {
+  border-left: 5px solid #15803d;
+}
+
+.workflow-node--output {
+  border-left: 5px solid #c2410c;
+}
+
+.workflow-node--agent {
+  border-left: 5px solid #0369a1;
+}
+
+.workflow-node--connector {
+  border-left: 5px solid #0f766e;
+}
+
+.workflow-node--utility,
+.workflow-node--tool {
+  border-left: 5px solid #a16207;
+}
+
+.config-title {
+  margin-top: 12px;
+}
+
+.config-title h3 {
+  margin: 0;
+}
+
+.config-title small {
+  color: #627084;
+}
+
+.config-section {
+  margin-top: 16px;
+}
+
+.config-section h4 {
+  margin: 0 0 8px;
+}
+
+.config-field {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.config-field input {
+  border: 1px solid #cad8ce;
+  border-radius: 9px;
+  padding: 8px 9px;
+  background: #fcfffc;
+}
+
+.config-field input:focus {
+  outline: 2px solid rgba(15, 118, 110, 0.18);
+  border-color: #8dbab5;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1200px) {
+  .workspace {
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 1fr 280px;
+  }
+
+  .panel--right {
+    grid-column: 1 / span 2;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 860px) {
+  .app-shell {
+    grid-template-rows: auto 1fr;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+    grid-template-rows: 230px minmax(360px, 1fr) 290px;
+  }
+
+  .panel {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .panel--right {
+    grid-column: auto;
+    border-top: 1px solid var(--line);
+  }
+
+  .canvas-wrap {
+    grid-template-rows: 1fr 250px;
+  }
+
+  .execution-panel {
+    grid-template-columns: 1fr;
+  }
+}
